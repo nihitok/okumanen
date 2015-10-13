@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Japanese currency string convert method}
   spec.description   = %q{Japanese currency string convert method}
-  spec.homepage      = "http://aliswell.com/"
+  spec.homepage      = "https://github.com/nihitok/okumanen"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
