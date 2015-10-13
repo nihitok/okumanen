@@ -22,8 +22,9 @@ Or install it yourself as:
 
 ## Usage
 
-    Okumanen.to_i("10円") # 10
-    Okumanen.to_i("1,234億1234万1,000円") // 123412341000
+    Okumanen.to_i("10円")                 # 10
+    Okumanen.to_i("1万1,234円")           # 11234
+    Okumanen.to_i("1,234億1234万1,000円") # 123412341000
 
 
 ## Development
