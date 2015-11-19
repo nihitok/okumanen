@@ -10,11 +10,19 @@ module Okumanen
   def self.to_i(str)
     str   = str.gsub(/,/, "")
     value = ""
-    [/(\d+)億(円)?/, /(\d+)万(円)?/, /(\d+)円/].each do|r|
+    next_value = ""
+    [/([\d\.]+)億(円)?/, /([\d\.]+)万(円)?/, /(\d+)円/].each do|r|
       m = str.match(r)
       if m.nil?
-        value += sprintf("%0.4d", 0)
+        while next_value.size < 4
+          next_value += "0"
+        end
+        value += sprintf("%0.4d", next_value)
+        next_value = ""
       else
+        if m[1].include?(".") 
+          next_value = m[1].split(".").last
+        end
         value += sprintf("%0.4d", m[1].to_i)
       end
     end
