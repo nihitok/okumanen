@@ -49,6 +49,7 @@ describe Okumanen do
     expect(Okumanen.to_i("1,234億12万1,000円")).to   be 123400121000
     expect(Okumanen.to_i("1,234億123万1,000円")).to  be 123401231000
     expect(Okumanen.to_i("1,234億1234万1,000円")).to be 123412341000
+
   end
 
   it '万円表記から数値表記に変更できる(小数点)' do
@@ -57,6 +58,15 @@ describe Okumanen do
     expect(Okumanen.to_i("1234.123万円")).to be 12341230
     expect(Okumanen.to_i("1234.1234万円")).to be 12341234
     expect(Okumanen.to_i("1234.1億円")).to be 123410000000
+
+    expect(Okumanen.to_i("1.2億円")).to            be 120000000
+    expect(Okumanen.to_i("1.23億円")).to            be 123000000
+    expect(Okumanen.to_i("1.234億円")).to            be 123400000
+    expect(Okumanen.to_i("1.2345億円")).to            be 123450000
+    expect(Okumanen.to_i("1.0345億円")).to            be 103450000
+    expect(Okumanen.to_i("1.0045億円")).to            be 100450000
+    expect(Okumanen.to_i("1.0005億円")).to            be 100050000
+    expect(Okumanen.to_i("1.0000億円")).to            be 100000000
   end
 
 end

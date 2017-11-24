@@ -17,7 +17,7 @@ module Okumanen
         while next_value.size < 4
           next_value += "0"
         end
-        value += sprintf("%0.4d", next_value)
+        value += sprintf("%0.4d", next_value.to_i)
         next_value = ""
       else
         if m[1].include?(".") 
